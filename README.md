@@ -1,28 +1,68 @@
-# PokemonTrainer
+# Pokemon Trainer
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.2.1.
+[Live Demo]() (Hosted on _Heroku_)
 
-## Development server
+[REST API]() (Hosted on _Heroku_)
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+[Component Tree Picture]()
 
-## Code scaffolding
+## Table of Contents
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+- [General Information](#general-information)
 
-## Build
+- [Technologies and Resources](#technologies-and-resources)
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+- [Installation and Usage](#installation-and-usage)
 
-## Running unit tests
+- [Contributors](#contributors)
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## General Information
 
-## Running end-to-end tests
+**Login view**
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+NOTE: User cannot see these views if _logged in_
 
-## Further help
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
-# pokemon-trainer
+**Trainer view**
+
+NOTE: User cannot see this view if _not logged in_
+
+**Catalogue view**
+
+NOTE: User cannot see this view if _not logged in_
+
+## Technologies and Resources
+
+The project is implemented using the following technologies and resources:
+
+- Angular
+
+## Installation and Usage
+
+**NOTE:** You will need _node_ and _npm_ installed on your machine
+
+1. Clone the project repository:
+
+```sh
+git clone https://github.com/arttuhar/pokemon-trainer.git
+```
+
+2. Install the dependencies while inside the project directory:
+
+```sh
+npm install
+```
+
+3. Start the server:
+
+```sh
+ng serve
+```
+
+After starting the server, your can acceess the application by navigating to `localhost:4200` on your browser.
+
+## Contributors
+
+[Arttu Hartikainen (@arttuhar)](https://github.com/arttuhar)
+
+[Timo Järvenpää (@TimoJarvenpaa)](https://github.com/TimoJarvenpaa)
