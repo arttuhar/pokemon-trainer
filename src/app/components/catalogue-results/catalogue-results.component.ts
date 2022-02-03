@@ -1,6 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
-import { Pokemon } from "src/app/models/pokemon.model";
+import { Pokemon, PokemonResults } from "src/app/models/pokemon.model";
 
 @Component({
     selector: 'app-catalogue-results',
@@ -9,18 +9,19 @@ import { Pokemon } from "src/app/models/pokemon.model";
 
 export class CatalogueResultsComponent implements OnInit {
 
-    public pokemon: Pokemon | null = null;
+    public pokemon: PokemonResults | null = null;
 
     constructor(private http: HttpClient) {
 
     }
 
     ngOnInit() {
-        this.http.get<Pokemon>('https://pokeapi.co/api/v2/pokemon')
+        this.http.get<PokemonResults>('https://pokeapi.co/api/v2/pokemon')
             .subscribe({
                 next: (response) => {
-                    console.log(response);
+                    //console.log(response);
                     this.pokemon = response;
+                    //console.log(this.pokemon.results[0])
                 },
                 error: (error) => {
                     console.error(error.message);

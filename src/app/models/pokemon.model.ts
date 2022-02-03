@@ -1,7 +1,7 @@
 export interface Pokemon {
-    results: PokemonResults;
+    name: string;
 }
 
 export interface PokemonResults {
-    name: string;
+    results: Pokemon[];
 }
