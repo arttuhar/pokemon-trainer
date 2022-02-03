@@ -1,24 +1,54 @@
-import { Injectable } from "@angular/core";
-import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
-import { User, UsersResponse } from '../models/user.model';
+import { User } from '../models/user.model';
 
 @Injectable({
-    providedIn: 'root'
+  providedIn: 'root',
 })
-
 export class UsersService {
-    private users: User[] = [];
+  private _user: User = <User>{};
 
-    constructor(private readonly http: HttpClient) {
+  get user(): User {
+    return this._user;
+  }
 
-    }
+  set user(user: User) {
+    sessionStorage.setItem('trainer-session', JSON.stringify(user));
+    this._user = user;
+  }
 
-    public fetchUsers(): void {
-        this.http.get<User[]>('https://at-assignment-api.herokuapp.com/trainers')
-            .subscribe((users: User[]) => {
-                this.users = users;
-                console.log(users);
+  constructor(private readonly http: HttpClient) {
+    this._user = JSON.parse(sessionStorage.getItem('trainer-session') || '{}');
+  }
+
+  public loginOrRegisterUser(username: string): void {
+    this.http
+      .get<User[]>(
+        `https://at-assignment-api.herokuapp.com/trainers?username=${username}`
+      )
+      .subscribe((users: User[]) => {
+        if (!Object.keys(users).length) {
+          this.http
+            .post(
+              'https://at-assignment-api.herokuapp.com/trainers',
+              JSON.stringify({
+                username: username,
+                pokemon: [],
+              }),
+              {
+                headers: {
+                  'X-API-Key': 'PHTR7fTglU6Hdl6/geiBaQ==',
+                  'Content-Type': 'application/json',
+                },
+              }
+            )
+            .subscribe((response: any) => {
+              this.user = response;
             });
-    }
+        } else {
+          this.user = users[0];
+        }
+      });
+  }
 }
