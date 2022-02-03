@@ -1,3 +1,4 @@
-<div>
-    <h1>Login</h1>
-</div>
+<form #loginForm="ngForm" (ngSubmit)="onSubmit(loginForm)">
+    <input ngModel type='text' id='username' name='username' />
+    <button type='submit'>Submit</button>
+</form>
