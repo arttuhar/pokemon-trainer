@@ -52,17 +52,13 @@ export class CatalogueResultsComponent implements OnInit {
       });
   }
 
-  get userIsLoggedIn(): boolean {
-    return this.userService.userIsLoggedIn();
-  }
-
   ngOnInit() {
     if (Object.keys(this._pokemon).length === 0) {
       this.fetchPokemonData();
     }
-    // add example
-    //this.userService.addPokemonToUser("onyx")
-    // remove example
-    //this.userService.removePokemonFromUser("ditto")
+  }
+
+  onPokemonSubmit(name: string): void {
+    this.userService.addPokemonToUser(name);
   }
 }

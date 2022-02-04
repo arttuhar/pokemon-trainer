@@ -11,6 +11,7 @@ import { TrainerPage } from './pages/trainer/trainer.page';
 import { AppRoutingModule } from './app-routing.module';
 import { CatalogueResultsComponent } from './components/catalogue-results/catalogue-results.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
+import { TrainerSummaryComponent } from './components/trainer-summary/trainer-summary.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { NavbarComponent } from './components/navbar/navbar.component';
     TrainerPage,
     CataloguePage,
     NavbarComponent,
-    CatalogueResultsComponent
+    CatalogueResultsComponent,
+    TrainerSummaryComponent
   ],
   imports: [
     BrowserModule,
