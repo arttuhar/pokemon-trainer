@@ -61,7 +61,16 @@ export class UserService {
   }
 
   public logout(): void {
-    sessionStorage.removeItem('trainer-session')
+    sessionStorage.removeItem('trainer-session');
+    this.router.navigateByUrl('/login');
+  }
+
+  public userIsLoggedIn(): boolean {
+    if (Object.keys(this._user).length !== 0) {
+      return true;
+    } else {
+      return false;
+    }
   }
 
   public addPokemonToUser(name: string): void {

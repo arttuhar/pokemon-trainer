@@ -52,6 +52,10 @@ export class CatalogueResultsComponent implements OnInit {
       });
   }
 
+  get userIsLoggedIn(): boolean {
+    return this.userService.userIsLoggedIn();
+  }
+
   ngOnInit() {
     if (Object.keys(this._pokemon).length === 0) {
       this.fetchPokemonData();
