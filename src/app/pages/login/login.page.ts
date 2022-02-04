@@ -21,6 +21,6 @@ export class LoginPage implements OnInit {
       onSubmit(loginForm: NgForm): void {
         const { username } = loginForm.value;
         this.userService.loginOrRegisterUser(username);
-        this.router.navigate(['/catalogue']);
+        //this.router.navigateByUrl('/catalogue');
       }
 }

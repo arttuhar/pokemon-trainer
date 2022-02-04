@@ -1,4 +1,5 @@
 import { NgModule } from "@angular/core";
+import { AuthGuard } from './guards/auth.guard';
 import { RouterModule, Routes } from "@angular/router";
 import { CataloguePage } from "./pages/catalogue/catalogue.page";
 import { LoginPage } from "./pages/login/login.page";
@@ -21,11 +22,13 @@ const routes: Routes = [
     },
     {
         path: 'catalogue',
-        component: CataloguePage
+        component: CataloguePage,
+        canActivate: [ AuthGuard ]
     },
     {
         path: 'trainer',
-        component: TrainerPage
+        component: TrainerPage,
+        canActivate: [ AuthGuard ]
     }
 ]
 
