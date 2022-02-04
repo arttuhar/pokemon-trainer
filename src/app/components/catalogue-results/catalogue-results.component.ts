@@ -5,8 +5,9 @@ import { UserService } from 'src/app/services/user.service';
 import { Pokemon, PokemonResults } from 'src/app/models/pokemon.model';
 
 @Component({
-  selector: 'app-catalogue-results',
-  templateUrl: './catalogue-results.component.html',
+    selector: 'app-catalogue-results',
+    templateUrl: './catalogue-results.component.html',
+    styleUrls: ['./catalogue-results.component.css']
 })
 export class CatalogueResultsComponent implements OnInit {
   public pokemon: PokemonResults | null = null;
