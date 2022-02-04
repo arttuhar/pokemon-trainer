@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 import { User } from '../models/user.model';
 
@@ -22,7 +22,15 @@ export class UserService {
     this._user = JSON.parse(sessionStorage.getItem('trainer-session') || '{}');
   }
 
+  private createHeaders(): HttpHeaders {
+    return new HttpHeaders({
+      'Content-Type': 'application/json',
+      'X-API-Key': 'PHTR7fTglU6Hdl6/geiBaQ==',
+    });
+  }
+
   public loginOrRegisterUser(username: string): void {
+    const headers = this.createHeaders();
     this.http
       .get<User[]>(
         `https://at-assignment-api.herokuapp.com/trainers?username=${username}`
@@ -37,10 +45,7 @@ export class UserService {
                 pokemon: [],
               }),
               {
-                headers: {
-                  'X-API-Key': 'PHTR7fTglU6Hdl6/geiBaQ==',
-                  'Content-Type': 'application/json',
-                },
+                headers,
               }
             )
             .subscribe((response: any) => {
@@ -49,6 +54,42 @@ export class UserService {
         } else {
           this.user = users[0];
         }
+      });
+  }
+
+  public addPokemonToUser(name: string): void {
+    const newPokemon = this.user.pokemon.concat(name);
+    const data = {
+      ...this.user,
+      pokemon: newPokemon,
+    };
+    const headers = this.createHeaders();
+    this.http
+      .patch<User>(
+        `https://at-assignment-api.herokuapp.com/trainers/${this.user.id}`,
+        data,
+        { headers }
+      )
+      .subscribe((user: User) => {
+        this.user = user;
+      });
+  }
+
+  public removePokemonFromUser(nameToRemove: string): void {
+    const newPokemon = this.user.pokemon.filter(name => name !== nameToRemove);
+    const data = {
+      ...this.user,
+      pokemon: newPokemon,
+    };
+    const headers = this.createHeaders();
+    this.http
+      .patch<User>(
+        `https://at-assignment-api.herokuapp.com/trainers/${this.user.id}`,
+        data,
+        { headers }
+      )
+      .subscribe((user: User) => {
+        this.user = user;
       });
   }
 }

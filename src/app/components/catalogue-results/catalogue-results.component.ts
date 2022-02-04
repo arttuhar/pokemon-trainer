@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
+import { UserService } from 'src/app/services/user.service';
 import { Pokemon, PokemonResults } from 'src/app/models/pokemon.model';
 
 @Component({
@@ -10,9 +11,15 @@ import { Pokemon, PokemonResults } from 'src/app/models/pokemon.model';
 export class CatalogueResultsComponent implements OnInit {
   public pokemon: PokemonResults | null = null;
 
-  constructor(private http: HttpClient) {}
+  constructor(
+    private http: HttpClient,
+    private userService: UserService) {}
 
   ngOnInit() {
+    // add example
+    //this.userService.addPokemonToUser("onyx")
+    // remove example
+    //this.userService.removePokemonFromUser("ditto")
     this.http
       .get<PokemonResults>('https://pokeapi.co/api/v2/pokemon')
       .pipe(
