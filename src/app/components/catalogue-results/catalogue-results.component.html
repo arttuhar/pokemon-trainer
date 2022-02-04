@@ -3,8 +3,8 @@
         <div class='col-3 text-center' *ngFor='let item of pokemon.results'>
             <div class='p-3 border bg-light'>
                 <p>{{ item.name }}</p>
-                <button type='button' class='add-button material-icons btn' value="{{item.name}}">
-                    <span class='add-button-icon material-icons'>add</span>
+                <button (click)="onPokemonSubmit(item.name)" type='button' class='add-button material-icons btn' value="{{item.name}}">
+                    <span class='add-button-icon material-icons'>catching_pokemon</span>
                 </button>
             </div>
         </div>
