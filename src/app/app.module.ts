@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http'
+import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { CataloguePage } from './pages/catalogue/catalogue.page';
@@ -8,6 +9,7 @@ import { LoginPage } from './pages/login/login.page';
 import { RegisterPage } from './pages/register/register.page';
 import { TrainerPage } from './pages/trainer/trainer.page';
 import { AppRoutingModule } from './app-routing.module';
+import { CatalogueResultsComponent } from './components/catalogue-results/catalogue-results.component';
 
 @NgModule({
   declarations: [
@@ -15,12 +17,14 @@ import { AppRoutingModule } from './app-routing.module';
     LoginPage,
     RegisterPage,
     TrainerPage,
-    CataloguePage
+    CataloguePage,
+    CatalogueResultsComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
