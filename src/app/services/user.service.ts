@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Router } from "@angular/router";
 
 import { User } from '../models/user.model';
 
@@ -18,7 +19,7 @@ export class UserService {
     this._user = user;
   }
 
-  constructor(private readonly http: HttpClient) {
+  constructor(private readonly http: HttpClient, private router: Router,) {
     this._user = JSON.parse(sessionStorage.getItem('trainer-session') || '{}');
   }
 
@@ -50,11 +51,17 @@ export class UserService {
             )
             .subscribe((response: any) => {
               this.user = response;
+              this.router.navigateByUrl('/catalogue');
             });
         } else {
           this.user = users[0];
+          this.router.navigateByUrl('/catalogue');
         }
       });
+  }
+
+  public logout(): void {
+    sessionStorage.removeItem('trainer-session')
   }
 
   public addPokemonToUser(name: string): void {
