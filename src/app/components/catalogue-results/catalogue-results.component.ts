@@ -9,17 +9,22 @@ import { Pokemon, PokemonResults } from 'src/app/models/pokemon.model';
   templateUrl: './catalogue-results.component.html',
 })
 export class CatalogueResultsComponent implements OnInit {
-  public pokemon: PokemonResults | null = null;
+  public _pokemon: PokemonResults = <PokemonResults>{};
 
-  constructor(
-    private http: HttpClient,
-    private userService: UserService) {}
+  get pokemon(): PokemonResults {
+    return this._pokemon;
+  }
 
-  ngOnInit() {
-    // add example
-    //this.userService.addPokemonToUser("onyx")
-    // remove example
-    //this.userService.removePokemonFromUser("ditto")
+  set pokemon(pokemon: PokemonResults) {
+    sessionStorage.setItem('pokemon-catalogue', JSON.stringify(pokemon));
+    this._pokemon = pokemon;
+  }
+
+  constructor(private http: HttpClient, private userService: UserService) {
+    this._pokemon = JSON.parse(sessionStorage.getItem('pokemon-catalogue') || '{}');
+  }
+
+  fetchPokemonData(): void {
     this.http
       .get<PokemonResults>('https://pokeapi.co/api/v2/pokemon')
       .pipe(
@@ -44,5 +49,15 @@ export class CatalogueResultsComponent implements OnInit {
           console.error(error.message);
         },
       });
+  }
+
+  ngOnInit() {
+    if (Object.keys(this._pokemon).length === 0) {
+      this.fetchPokemonData();
+    }
+    // add example
+    //this.userService.addPokemonToUser("onyx")
+    // remove example
+    //this.userService.removePokemonFromUser("ditto")
   }
 }
