@@ -1,6 +1,6 @@
 import { Component } from "@angular/core";
 import { UserService } from 'src/app/services/user.service';
-import { Pokemon, PokemonResults } from 'src/app/models/pokemon.model';
+import { Pokemon } from 'src/app/models/pokemon.model';
 
 @Component({
     selector: 'app-trainer-summary',
@@ -11,7 +11,7 @@ export class TrainerSummaryComponent {
 
     constructor(private userService: UserService) {}
 
-    get userPokemon(): string[] {
+    get userPokemon(): Pokemon[] {
         return this.userService.user.pokemon;
     }
 
