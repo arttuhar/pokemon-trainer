@@ -58,7 +58,7 @@ export class CatalogueResultsComponent implements OnInit {
     }
   }
 
-  onPokemonSubmit(name: string): void {
-    this.userService.addPokemonToUser(name);
+  onPokemonSubmit(pokemon: Pokemon): void {
+    this.userService.addPokemonToUser(pokemon);
   }
 }

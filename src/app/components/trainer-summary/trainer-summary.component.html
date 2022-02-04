@@ -5,8 +5,8 @@
     <div class='row g-2'>
         <div class='col-3 text-center' *ngFor="let pokemon of userPokemon">
             <div class='p-3 border bg-light'>
-                <p>{{ pokemon }}</p>
-                <button (click)="onPokemonRemove(pokemon)" class='btn'>
+                <p>{{ pokemon.name }}</p>
+                <button (click)="onPokemonRemove(pokemon.name)" class='btn'>
                     <span class='material-icons'>close</span>
                 </button>
             </div>

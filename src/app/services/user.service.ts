@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Router } from "@angular/router";
+import { Router } from '@angular/router';
 
 import { User } from '../models/user.model';
+import { Pokemon } from '../models/pokemon.model';
 
 @Injectable({
   providedIn: 'root',
@@ -19,7 +20,7 @@ export class UserService {
     this._user = user;
   }
 
-  constructor(private readonly http: HttpClient, private router: Router,) {
+  constructor(private readonly http: HttpClient, private router: Router) {
     this._user = JSON.parse(sessionStorage.getItem('trainer-session') || '{}');
   }
 
@@ -62,6 +63,7 @@ export class UserService {
 
   public logout(): void {
     sessionStorage.removeItem('trainer-session');
+    this._user = <User>{};
     this.router.navigateByUrl('/login');
   }
 
@@ -73,8 +75,8 @@ export class UserService {
     }
   }
 
-  public addPokemonToUser(name: string): void {
-    const newPokemon = this.user.pokemon.concat(name);
+  public addPokemonToUser(pokemon: Pokemon): void {
+    const newPokemon = this.user.pokemon.concat(pokemon);
     const data = {
       ...this.user,
       pokemon: newPokemon,
@@ -92,7 +94,9 @@ export class UserService {
   }
 
   public removePokemonFromUser(nameToRemove: string): void {
-    const newPokemon = this.user.pokemon.filter(name => name !== nameToRemove);
+    const newPokemon = this.user.pokemon.filter(
+      (pokemon) => pokemon.name !== nameToRemove
+    );
     const data = {
       ...this.user,
       pokemon: newPokemon,

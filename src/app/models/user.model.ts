@@ -1,7 +1,9 @@
+import { Pokemon } from "./pokemon.model";
+
 export interface User {
     id: number;
     username: string;
-    pokemon: string[];
+    pokemon: Pokemon[];
 }
 
 export interface UsersResponse {
