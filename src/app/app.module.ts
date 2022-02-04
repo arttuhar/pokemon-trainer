@@ -10,6 +10,7 @@ import { RegisterPage } from './pages/register/register.page';
 import { TrainerPage } from './pages/trainer/trainer.page';
 import { AppRoutingModule } from './app-routing.module';
 import { CatalogueResultsComponent } from './components/catalogue-results/catalogue-results.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { CatalogueResultsComponent } from './components/catalogue-results/catalo
     RegisterPage,
     TrainerPage,
     CataloguePage,
+    NavbarComponent,
     CatalogueResultsComponent
   ],
   imports: [
