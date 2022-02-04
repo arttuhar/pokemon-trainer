@@ -1,3 +1,12 @@
-<div *ngIf='pokemon !== null'>
-    <p *ngFor='let item of pokemon.results'>{{ item.name }}</p>
+<div class='container my-5'>
+    <div class='row g-2' *ngIf='pokemon !== null'>
+        <div class='col-3 text-center' *ngFor='let item of pokemon.results'>
+            <div class='p-3 border bg-light'>
+                <p>{{ item.name }}</p>
+                <button type='button' class='add-button material-icons btn' value="{{item.name}}">
+                    <span class='add-button-icon material-icons'>add</span>
+                </button>
+            </div>
+        </div>
+    </div>
 </div>

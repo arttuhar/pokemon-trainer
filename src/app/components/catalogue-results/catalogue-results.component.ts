@@ -4,7 +4,8 @@ import { Pokemon, PokemonResults } from "src/app/models/pokemon.model";
 
 @Component({
     selector: 'app-catalogue-results',
-    templateUrl: './catalogue-results.component.html'
+    templateUrl: './catalogue-results.component.html',
+    styleUrls: ['./catalogue-results.component.css']
 })
 
 export class CatalogueResultsComponent implements OnInit {
