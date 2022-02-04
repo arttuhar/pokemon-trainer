@@ -3,3 +3,9 @@
   padding: 0;
   box-sizing: border-box;
 }
+
+body {
+  background: url(https://assets.pokemon.com/static2/_ui/img/chrome/container_bg.png)
+    no-repeat center center fixed;
+  background-size: cover;
+}

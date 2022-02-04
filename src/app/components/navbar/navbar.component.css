@@ -1,0 +1,29 @@
+.navbar {
+  height: 80px;
+  background-color: #e3350d !important;
+}
+
+.navbar-logo {
+  font-family: "Ubuntu", sand-serif;
+  font-size: 32px;
+  color: #ffcb05;
+  font-weight: 400;
+  text-shadow: 1px 1px #3c5aa6, -1px 1px #3c5aa6, 1px -1px #3c5aa6,
+    -1px -4px #3c5aa6, 1px 1px #3c5aa6;
+}
+
+.user-button-icon {
+  color: #fafafa;
+}
+
+.user-button-icon:hover {
+  color: #efefef;
+}
+
+.logout-button-icon {
+  color: #fafafa;
+}
+
+.logout-button-icon:hover {
+  color: #efefef;
+}
