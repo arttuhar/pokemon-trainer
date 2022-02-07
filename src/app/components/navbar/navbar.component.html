@@ -2,10 +2,10 @@
     <div class="container px-4">
       <span (click)='onHomeClick()' class="navbar-logo navbar-brand mb-0 h1">Pokémon Trainer</span>
       <div class='d-flex' *ngIf='userIsLoggedIn'>
-          <button (click)='onTrainerClick()' class='btn'>
+          <button (click)='onTrainerClick()' class='user-button btn'>
               <span class='material-icons user-button-icon'>person</span>
           </button>
-          <button (click)='onLogout()' class='btn'>
+          <button (click)='onLogout()' class='logout-button btn'>
             <span class='material-icons logout-button-icon'>logout</span>
           </button>
       </div>

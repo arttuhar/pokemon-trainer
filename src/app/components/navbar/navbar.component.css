@@ -13,12 +13,20 @@
   cursor: pointer;
 }
 
+.user-button:hover {
+  box-shadow: none;
+}
+
 .user-button-icon {
   color: #fafafa;
 }
 
 .user-button-icon:hover {
   color: #efefef;
+}
+
+.logout-button:hover {
+  box-shadow: none;
 }
 
 .logout-button-icon {
