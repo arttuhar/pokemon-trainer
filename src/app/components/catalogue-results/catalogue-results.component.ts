@@ -32,7 +32,9 @@ export class CatalogueResultsComponent implements OnInit {
         map((response: PokemonResults) => {
           const transformedResults = response.results.map(
             (pokemon: Pokemon) => {
-              return { ...pokemon, id: pokemon.url.split('/')[6] || '' };
+              return { ...pokemon,
+                name: pokemon.name[0].toUpperCase() + pokemon.name.slice(1).toLowerCase(),
+                id: pokemon.url.split('/')[6] || '' };
             }
           );
           const transformedResponse = {
@@ -60,5 +62,14 @@ export class CatalogueResultsComponent implements OnInit {
 
   onPokemonSubmit(pokemon: Pokemon): void {
     this.userService.addPokemonToUser(pokemon);
+  }
+
+  trainerHasPokemon(id: string): boolean {
+    const trainerPokemonIds = this.userService.user.pokemon.map(pokemon => pokemon.id);
+    if (trainerPokemonIds.includes(id)) {
+      return true;
+    } else {
+      return false;
+    }
   }
 }

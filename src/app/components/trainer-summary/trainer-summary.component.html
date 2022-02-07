@@ -5,6 +5,7 @@
     <div class='row g-2'>
         <div class='col-3 text-center' *ngFor="let pokemon of userPokemon">
             <div class='p-3 border bg-light'>
+                <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/{{pokemon.id}}.png" alt='{{pokemon.name}}' />
                 <p>{{ pokemon.name }}</p>
                 <button (click)="onPokemonRemove(pokemon.name)" class='btn'>
                     <span class='material-icons'>close</span>

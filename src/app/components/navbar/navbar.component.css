@@ -10,6 +10,7 @@
   font-weight: 400;
   text-shadow: 1px 1px #3c5aa6, -1px 1px #3c5aa6, 1px -1px #3c5aa6,
     -1px -4px #3c5aa6, 1px 1px #3c5aa6;
+  cursor: pointer;
 }
 
 .user-button-icon {
