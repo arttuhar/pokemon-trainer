@@ -12,6 +12,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { CatalogueResultsComponent } from './components/catalogue-results/catalogue-results.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { TrainerSummaryComponent } from './components/trainer-summary/trainer-summary.component';
+import { LoginFormComponent } from './components/login-form/login-form.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { TrainerSummaryComponent } from './components/trainer-summary/trainer-su
     TrainerPage,
     CataloguePage,
     NavbarComponent,
+    LoginFormComponent,
     CatalogueResultsComponent,
     TrainerSummaryComponent
   ],
