@@ -1,0 +1,12 @@
+<div class='container vh-100 d-flex justify-content-center align-items-center'>
+    <div class='login-form-container py-5 px-4 shadow'>
+        <form class='d-flex align-items-center' #loginForm="ngForm" (ngSubmit)="onSubmit(loginForm)">
+            <div class='login-form-input-border p-3'>
+                <input class='login-form-input' ngModel type='text' id='username' name='username' placeholder='Trainer name' />
+            </div>
+            <button class="login-form-button btn mx-4 rounded-circle d-flex align-items-center" type='submit'>
+                <span class='login-button-icon material-icons'>east</span>
+            </button>
+        </form>
+    </div>
+</div>
