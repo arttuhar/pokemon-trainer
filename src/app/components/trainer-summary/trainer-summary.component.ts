@@ -11,10 +11,13 @@ export class TrainerSummaryComponent {
 
     constructor(private userService: UserService) {}
 
+    // a getter for the template
+    // returns an array of the user's Pokemon
     get userPokemon(): Pokemon[] {
         return this.userService.user.pokemon;
     }
 
+    // an event handler for the 'remove Pokemon' button
     onPokemonRemove(name: string): void {
         this.userService.removePokemonFromUser(name);
       }

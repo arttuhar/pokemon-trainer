@@ -6,6 +6,9 @@ import { UserService } from '../services/user.service';
 @Injectable({
   providedIn: 'root'
 })
+// a route guard used to prevent access to certain routes if the user IS logged in
+// the template for this component is modified from the example project in 
+// https://gitlab.com/sumodevelopment/angular-movies-demo-java-2022/-/blob/main/src/app/guards/auth.guard.ts
 export class LoginGuard implements CanActivate {
 
   constructor(
@@ -18,7 +21,9 @@ export class LoginGuard implements CanActivate {
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
+    // if the user state is not an empty object i.e. user is logged in
     if (Object.keys(this.userService.user).length !== 0) {
+      // redirect to the main page
       this.router.navigateByUrl("/catalogue");
       return false;
     }
