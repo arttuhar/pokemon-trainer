@@ -106,10 +106,11 @@ export class UserService {
   public addPokemonToUser(pokemon: Pokemon): void {
     // create a new array with the added Pokemon
     const newPokemon = this.user.pokemon.concat(pokemon);
+    const sortedNewPokemon = newPokemon.sort((p1, p2) => Number(p1.id) - Number(p2.id));
     // create a payload where the old Pokemon array is replaced with the new one
     const data = {
       ...this.user,
-      pokemon: newPokemon,
+      pokemon: sortedNewPokemon,
     };
     const headers = this.createHeaders();
     // PATCH request to update the API
