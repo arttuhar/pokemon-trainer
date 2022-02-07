@@ -4,7 +4,8 @@ import { Pokemon } from 'src/app/models/pokemon.model';
 
 @Component({
     selector: 'app-trainer-summary',
-    templateUrl: './trainer-summary.component.html'
+    templateUrl: './trainer-summary.component.html',
+    styleUrls: ['./trainer-summary.component.css']
 })
 
 export class TrainerSummaryComponent {

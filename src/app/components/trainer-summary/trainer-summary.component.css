@@ -1,18 +1,19 @@
-.catalogue-results-container {
+.trainer-summary-container {
   background-color: #fff;
   border: 1px solid #efefef;
 }
 
-.catch-icon {
-  color: #555;
+.trainer-summary-username {
+  font-family: "Press Start 2P", cursive;
+  font-size: 24px;
 }
 
-.category-results-name {
+.trainer-summary-name {
   font-family: "Press Start 2P", cursive;
   font-size: 12px;
 }
 
-.add-button {
+.remove-button {
   border: 1px solid black;
   border-radius: 50%;
   width: 40px;
@@ -20,7 +21,7 @@
   box-shadow: none;
 }
 
-.add-button-icon {
+.remove-button-icon {
   display: flex;
   justify-content: center;
 }

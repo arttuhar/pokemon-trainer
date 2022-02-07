@@ -1,15 +1,17 @@
 <div class='container my-5'>
-    <div class='row g-2' *ngIf='pokemon !== null'>
-        <div class='col-3 text-center' *ngFor='let pokemon of pokemon.results'>
-            <div class='p-3 border bg-light'>
-                <div>
-                    <span *ngIf='trainerHasPokemon(pokemon.id)' class='catch-icon material-icons'>catching_pokemon</span>
-                    <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/{{pokemon.id}}.png" alt='{{pokemon.name}}' />
+    <div class='catalogue-results-container p-4'>
+        <div class='row g-2' *ngIf='pokemon !== null'>
+            <div class='col-3 text-center' *ngFor='let pokemon of pokemon.results'>
+                <div class='p-3 border bg-light'>
+                    <div>
+                        <span *ngIf='trainerHasPokemon(pokemon.id)' class='catch-icon material-icons'>catching_pokemon</span>
+                        <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/{{pokemon.id}}.png" alt='{{pokemon.name}}' />
+                    </div>
+                    <p class='category-results-name'>{{ pokemon.name }}</p>
+                    <button [disabled]='trainerHasPokemon(pokemon.id)' (click)="onPokemonSubmit(pokemon)" type='button' class='add-button material-icons btn' value="{{pokemon.name}}">
+                        <span class='add-button-icon material-icons'>add</span>
+                    </button>
                 </div>
-                <p>{{ pokemon.name }}</p>
-                <button [disabled]='trainerHasPokemon(pokemon.id)' (click)="onPokemonSubmit(pokemon)" type='button' class='add-button material-icons btn' value="{{pokemon.name}}">
-                    <span class='add-button-icon material-icons'>add</span>
-                </button>
             </div>
         </div>
     </div>

@@ -1,15 +1,17 @@
 <div class='container my-5'>
-    <div>
-        <h2>{{username}}</h2>
-    </div>
-    <div class='row g-2'>
-        <div class='col-3 text-center' *ngFor="let pokemon of userPokemon">
-            <div class='p-3 border bg-light'>
-                <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/{{pokemon.id}}.png" alt='{{pokemon.name}}' />
-                <p>{{ pokemon.name }}</p>
-                <button (click)="onPokemonRemove(pokemon.name)" class='btn'>
-                    <span class='material-icons'>close</span>
-                </button>
+    <div class='trainer-summary-container p-4'>
+        <div class='my-4 mx-2'>
+            <h2 class='trainer-summary-username'>{{username}}</h2>
+        </div>
+        <div class='row g-2'>
+            <div class='col-3 text-center' *ngFor="let pokemon of userPokemon">
+                <div class='p-3 border bg-light'>
+                    <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/{{pokemon.id}}.png" alt='{{pokemon.name}}' />
+                    <p class='trainer-summary-name'>{{ pokemon.name }}</p>
+                    <button (click)="onPokemonRemove(pokemon.name)" class='remove-button btn'>
+                        <span class='remove-button-icon material-icons'>close</span>
+                    </button>
+                </div>
             </div>
         </div>
     </div>
