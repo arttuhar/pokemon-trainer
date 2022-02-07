@@ -11,12 +11,14 @@ export class TrainerSummaryComponent {
 
     constructor(private userService: UserService) {}
 
-    // a getter for the template
+    // a getter function for the template
     // returns an array of the user's Pokemon
     get userPokemon(): Pokemon[] {
         return this.userService.user.pokemon;
     }
 
+    // a getter function for the template
+    // returns the users's username
     get username(): string {
         return this.userService.user.username;
     }

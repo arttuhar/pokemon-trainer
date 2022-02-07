@@ -20,8 +20,11 @@ export class LoginFormComponent implements OnInit {
         
     }
 
+    // an event handler for the 'login' button
     onSubmit(loginForm: NgForm): void {
+        // get the input value from the form
         const { username } = loginForm.value;
+        // pass the value to the login/register function
         this.userService.loginOrRegisterUser(username);
       }
 }
