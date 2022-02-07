@@ -17,6 +17,10 @@ export class TrainerSummaryComponent {
         return this.userService.user.pokemon;
     }
 
+    get username(): string {
+        return this.userService.user.username;
+    }
+
     // an event handler for the 'remove Pokemon' button
     onPokemonRemove(name: string): void {
         this.userService.removePokemonFromUser(name);

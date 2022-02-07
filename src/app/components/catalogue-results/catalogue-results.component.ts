@@ -35,7 +35,7 @@ export class CatalogueResultsComponent implements OnInit {
   // a function that fetches Pokemon from the PokeAPI
   fetchPokemonData(): void {
     this.http
-      .get<PokemonResults>('https://pokeapi.co/api/v2/pokemon')
+      .get<PokemonResults>('https://pokeapi.co/api/v2/pokemon?limit=151')
       .pipe(
         // transform the response data to contain custom values
         map((response: PokemonResults) => {

@@ -4,7 +4,6 @@ import { LoginGuard } from './guards/login.guard';
 import { RouterModule, Routes } from "@angular/router";
 import { CataloguePage } from "./pages/catalogue/catalogue.page";
 import { LoginPage } from "./pages/login/login.page";
-import { RegisterPage } from "./pages/register/register.page";
 import { TrainerPage } from "./pages/trainer/trainer.page";
 
 const routes: Routes = [
@@ -17,10 +16,6 @@ const routes: Routes = [
         path: 'login',
         component: LoginPage,
         canActivate: [ LoginGuard ]
-    },
-    {
-        path: 'register',
-        component: RegisterPage
     },
     {
         path: 'catalogue',

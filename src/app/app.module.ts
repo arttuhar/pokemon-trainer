@@ -6,7 +6,6 @@ import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { CataloguePage } from './pages/catalogue/catalogue.page';
 import { LoginPage } from './pages/login/login.page';
-import { RegisterPage } from './pages/register/register.page';
 import { TrainerPage } from './pages/trainer/trainer.page';
 import { AppRoutingModule } from './app-routing.module';
 import { CatalogueResultsComponent } from './components/catalogue-results/catalogue-results.component';
@@ -18,7 +17,6 @@ import { LoginFormComponent } from './components/login-form/login-form.component
   declarations: [
     AppComponent,
     LoginPage,
-    RegisterPage,
     TrainerPage,
     CataloguePage,
     NavbarComponent,
