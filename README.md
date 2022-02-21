@@ -1,5 +1,7 @@
 # Pokemon Trainer
 
+![GitHub repo size](https://img.shields.io/github/repo-size/arttuhar/pokemon-trainer)
+
 [Live Demo](https://at-pokemon-trainer.herokuapp.com) (Hosted on _Heroku_)
 
 [REST API](https://at-assignment-api.herokuapp.com/trainers) (Hosted on _Heroku_)
